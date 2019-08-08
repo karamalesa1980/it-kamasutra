@@ -1,44 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import Header from './Header.js';
 
 
 
 const App = () => {
   return (
     <div>
-    <div><Header /></div>
-    <div className="App">
-      <a>
-        Home
+      <div><Header /></div>
+      <div className="App">
+        <a>
+          Home
       </a>
-     <ul>
-      <li>
-        Hello
+        <ul>
+          <li>
+            Hello
       </li>
-      <li>
-        World
+          <li>
+            World
       </li>
-     </ul>
+        </ul>
+      </div>
     </div>
-    </div>
-     
-  );
-}
 
-
-const Header = () => {
-  return (
-    
-    <div>
-      <a>
-        Contacts!
-      </a>
-
-    </div>  
-      
-    
-     
   );
 }
 
