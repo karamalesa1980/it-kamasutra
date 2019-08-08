@@ -32,7 +32,7 @@ const Header = () => {
     
     <div>
       <a>
-        Contacts
+        Contacts!
       </a>
 
     </div>  
