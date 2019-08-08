@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header.js';
+import Technologies from './Technologies';
 
 
 
 const App = () => {
   return (
     <div>
-      <div><Header /></div>
+      <div>
+        <Header />
+        <Technologies />
+      </div>
       <div className="App">
         <a>
           Home
