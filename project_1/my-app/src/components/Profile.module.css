@@ -1,0 +1,9 @@
+.contant {
+  grid-area: c;
+  background-color: yellowgreen;
+  margin: 2px;
+}
+
+.item {
+  color: greenyellow
+}

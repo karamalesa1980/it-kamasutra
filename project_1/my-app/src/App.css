@@ -11,27 +11,9 @@
   /* grid-gap: 10px; */
 }
 
-.header {
-  grid-area: h;
-  background-color: antiquewhite;
-  
-}
 
-.header img {
-  width: 40px;
-}
 
-.nav {
-  grid-area: n;
-  background-color: aqua;
-}
 
-.contant {
-  grid-area: c;
-  background-color: yellowgreen
-}
 
-.footer {
-  grid-area: f;
-  background-color: blueviolet;
-}
+
+
