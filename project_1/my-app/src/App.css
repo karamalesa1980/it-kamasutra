@@ -11,7 +11,12 @@
   /* grid-gap: 10px; */
 }
 
-
+.app-wrapper-contant {
+  grid-area: c;
+  background-color: yellowgreen;
+  margin: 2px 2px auto 0;
+  padding: 10px;
+}
 
 
 

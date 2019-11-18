@@ -3,7 +3,7 @@ import classes from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
-  return <div className={classes.contant}>
+  return <div>
     <div>
       <img src='http://www.ykasova.com/uploads/users/comments/31912_71_b_gusi.jpg'/>
     </div>
