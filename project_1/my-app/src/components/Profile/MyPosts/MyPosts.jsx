@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
+import Post from './Post/Post';
 
 const MyPosts = () => {
   return (
@@ -8,12 +9,7 @@ const MyPosts = () => {
       <div>
         My posts
       </div>
-      <div>
-        New post
-      </div>
-      <div className={classes.item}>
-        Post 1
-      </div>
+      <Post/>
     </div>
   )
 }
