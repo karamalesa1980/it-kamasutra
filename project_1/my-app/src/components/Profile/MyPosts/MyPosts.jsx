@@ -9,7 +9,14 @@ const MyPosts = () => {
       <div>
         My posts
       </div>
-      <Post/>
+      New post
+      <div>        
+        <textarea></textarea><br/>
+        <button>Add post</button>
+      </div>
+      <Post message="Hi yuriy!" like="15"/>
+      <Post message="Hi marina!" like="25"/>
+
     </div>
   )
 }

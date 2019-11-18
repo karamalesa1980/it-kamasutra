@@ -5,7 +5,7 @@ import MyPosts from './MyPosts/MyPosts';
 const Profile = () => {
   return <div className={classes.contant}>
     <div>
-      <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkz6P0VSCzO5Vw5uc6MKgcwS0nRUgzOQMbyfzJk34KU2VQ9aDw'/>
+      <img src='http://www.ykasova.com/uploads/users/comments/31912_71_b_gusi.jpg'/>
     </div>
     <div>
       Ava + Discription

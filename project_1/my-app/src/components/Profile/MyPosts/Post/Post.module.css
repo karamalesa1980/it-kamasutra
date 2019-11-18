@@ -1,5 +1,17 @@
 
 
 .item {
-  color: greenyellow
+  background: #fff;
+  color: black;
+  border: 2px solid #A8C2CF;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.item img {
+  width: 50px;
+  margin: 2px; 
+  border-radius: 100%;
 }
