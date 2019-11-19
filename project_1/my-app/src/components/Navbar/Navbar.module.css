@@ -5,10 +5,11 @@
   padding-left: 10px;
 }
 
-  .item {
-    color: white;
-  }
+.item a {
+  color: white;
+  text-decoration: none;
+}
 
-  .item.active {
-    color: gold;
-  }
+.item a.active_link {
+  color: gold;
+}
