@@ -6,12 +6,14 @@ import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
+import News from './components/News/News';
+import Muzic from './components/Muzic/Muzic';
 
 
 
 
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -20,6 +22,8 @@ const App = () => {
         <div className='app-wrapper-contant'>
           <Route path='/dialogs' component={Dialogs} />
           <Route path='/profile' component={Profile} />
+          <Route path='/news' component={News} />
+          <Route path='/muzic' component={Muzic} />
         </div>
 
         <Footer />

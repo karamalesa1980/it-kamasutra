@@ -10,10 +10,10 @@ const Navbar = () => {
     <a href="/profile">Profile</a>
   </div>
   <div className={`${classes.item} ${classes.active}`}>
-    <a>News</a>
+    <a href="/news">News</a>
   </div>
   <div className='item'>
-    <a href='#'>Muzic</a>
+    <a href='/muzic'>Muzic</a>
   </div>
 </nav>
 }
