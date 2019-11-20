@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import { NavLink } from 'react-router-dom';
 import ItemDialog from './ItemDialog/ItemDialog';
+import Message from './Message/Message';
 
 
  
@@ -17,15 +18,7 @@ const Dialogs = (props) => {
         <ItemDialog name='Igor' id='5'/>
       </div>
       <div className={classes.messages}>
-        <div className={classes.message}>
-          Message 1
-        </div>
-        <div className={classes.message}>
-          Message 2
-        </div>
-        <div className={classes.message}>
-          Message 3
-        </div>
+        <Message message='Hi yuriy'/>
       </div>
     </div> 
 	)
