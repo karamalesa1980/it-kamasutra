@@ -20,10 +20,10 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className='app-wrapper-contant'>
-          <Route path='/dialogs' component={Dialogs} />
-          <Route path='/profile' component={Profile} />
-          <Route path='/news' component={News} />
-          <Route path='/muzic' component={Muzic} />
+          <Route exact path='/dialogs' component={Dialogs} />
+          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/news' component={News} />
+          <Route exact path='/muzic' component={Muzic} />
         </div>
 
         <Footer />
