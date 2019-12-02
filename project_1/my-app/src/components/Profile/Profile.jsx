@@ -13,3 +13,10 @@ const Profile = () => {
 }
 
 export default Profile;
+
+const posts = [
+  {id: 1, message: 'Hi Yuriy', like: '16'},
+  {id: 2, message: 'Hi Anton', like: '25'},
+];
+
+export { posts };
