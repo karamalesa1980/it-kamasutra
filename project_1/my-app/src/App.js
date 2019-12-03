@@ -12,7 +12,6 @@ import Muzic from './components/Muzic/Muzic';
 
 
 
-
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -20,8 +19,8 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className='app-wrapper-contant'>
-          <Route exact path='/dialogs' component={Dialogs} />
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/dialogs' render={ () => <Dialogs dialogs={props.dialogs} messages={props.messages}/>} />
+          <Route exact path='/profile' render={ () => <Profile posts={props.posts}/>} />
           <Route exact path='/news' component={News} />
           <Route exact path='/muzic' component={Muzic} />
         </div>
