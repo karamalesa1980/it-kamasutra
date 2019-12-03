@@ -12,11 +12,11 @@ const Dialogs = (props) => {
  
 
   let dialogsElements =
-  props.dialogs.map( d => <ItemDialog name={d.name} id={d.id} /> );
+  props.appstate.dialogs.map( d => <ItemDialog name={d.name} id={d.id} avatar={d.avatar} /> );
 
 
   let messagesElements =
-  props.messages.map( m => <Message message={m.message} id={m.id} /> );
+  props.appstate.messages.map( m => <Message message={m.message} id={m.id} /> );
 
   return (
   	<div className={classes.dialogs}>
