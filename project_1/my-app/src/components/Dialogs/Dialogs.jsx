@@ -10,8 +10,14 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
 
   let addmessage = () => {
+    props.addmessage();
+  }
+
+  
+
+  let onmessageChange = () => {
     let text = newmessageElement.current.value
-    alert(text)
+    props.updatenewmessageText(text);
   }
 
   let newmessageElement = React.createRef();
@@ -45,8 +51,11 @@ const Dialogs = (props) => {
         <Message message={messagesData[2].message} id={messagesData[2].id}/>
         <Message message={messagesData[3].message} id={messagesData[3].id}/>
         <Message message={messagesData[4].message} id={messagesData[4].id}/> */}
-        <textarea ref={newmessageElement}></textarea><br/>
+        <div className={classes.messages}>
+        <textarea onChange={onmessageChange} value={props.appstate.newmessageText} ref={newmessageElement} /><br/>
         <button onClick={ addmessage }>Add message</button>
+        </div>
+        
       </div>
     </div> 
 	)

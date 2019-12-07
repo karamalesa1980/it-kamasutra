@@ -19,8 +19,16 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className='app-wrapper-contant'>
-          <Route exact path='/dialogs' render={ () => <Dialogs appstate={props.appstate} />} />
-          <Route exact path='/profile' render={ () => <Profile appstate={props.appstate}/>} />
+          <Route exact path='/dialogs' render={ () => <Dialogs
+            appstate={props.appstate}
+            addmessage={props.addmessage}
+            updatenewmessageText={props.updatenewmessageText}/>}
+            />
+          <Route exact path='/profile' render={ () => <Profile
+          appstate={props.appstate}
+          addpost={props.addpost}
+          updatenewpostText={props.updatenewpostText}/>}
+          />
           <Route exact path='/news' component={News} />
           <Route exact path='/muzic' component={Muzic} />
         </div>
