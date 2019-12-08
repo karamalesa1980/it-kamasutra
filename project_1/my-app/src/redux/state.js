@@ -1,4 +1,11 @@
-import { rerenderEntireTree } from "../render";
+
+let rerenderEntireTree = () => {
+};
+
+export const suscribe = (observer) => {
+  rerenderEntireTree = observer;
+};
+
 
 let state = {
   posts: [
@@ -27,14 +34,6 @@ let state = {
   ]
 }
 
-let renderTree = () => {
-  rerenderEntireTree(
-    state,
-    addpost,
-    addmessage,
-    updatenewpostText,
-    updatenewmessageText);
-};
 
 export let addmessage = () => {
   
@@ -44,13 +43,13 @@ export let addmessage = () => {
   };
   state.messages.push(newmessage);
   state.newmessageText = '';
-  renderTree();
+  rerenderEntireTree();
 };
 
 export let updatenewmessageText = (newtext) => {
   
   state.newmessageText = newtext;
-  renderTree();
+  rerenderEntireTree();
 };
 
 
@@ -64,13 +63,15 @@ export let addpost = () => {
   };
   state.posts.push(newpost);
   state.newpostText = '';
-  renderTree();
+  rerenderEntireTree();
 };
 
 export let updatenewpostText = (newtext) => {
   
   state.newpostText = newtext;
-  renderTree();
+  rerenderEntireTree();
 };
+
+
 
 export default state;
