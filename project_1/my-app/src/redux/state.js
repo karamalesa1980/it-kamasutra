@@ -27,6 +27,15 @@ let state = {
   ]
 }
 
+let renderTree = () => {
+  rerenderEntireTree(
+    state,
+    addpost,
+    addmessage,
+    updatenewpostText,
+    updatenewmessageText);
+};
+
 export let addmessage = () => {
   
   let newmessage = {
@@ -35,13 +44,13 @@ export let addmessage = () => {
   };
   state.messages.push(newmessage);
   state.newmessageText = '';
-  rerenderEntireTree(state, addpost, addmessage, updatenewpostText, updatenewmessageText);
+  renderTree();
 };
 
 export let updatenewmessageText = (newtext) => {
   
   state.newmessageText = newtext;
-  rerenderEntireTree(state, addpost, addmessage, updatenewpostText, updatenewmessageText);
+  renderTree();
 };
 
 
@@ -55,13 +64,13 @@ export let addpost = () => {
   };
   state.posts.push(newpost);
   state.newpostText = '';
-  rerenderEntireTree(state, addpost, addmessage, updatenewpostText, updatenewmessageText);
+  renderTree();
 };
 
 export let updatenewpostText = (newtext) => {
   
   state.newpostText = newtext;
-  rerenderEntireTree(state, addpost, addmessage, updatenewpostText, updatenewmessageText);
+  renderTree();
 };
 
 export default state;
