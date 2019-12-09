@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_MESSAGE = 'ADD-MESSAGE'
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+
 let store = {
   _state: {
     posts: [
@@ -29,46 +34,99 @@ let store = {
     return this._state;
   },
 
-  callSuscriber() {
+  _callSuscriber() {
   },
 
   suscribe(observer) {
-    this.callSuscriber = observer;
+    this._callSuscriber = observer;
   },
 
-  addmessage() {  
-    let newmessage = {
-      id: 4,
-      message: this._state.newmessageText
-    };
-    this._state.messages.push(newmessage);
-    this._state.newmessageText = '';
-    this.callSuscriber();
-  },
-
-  updatenewmessageText(newtext) {  
-    this._state.newmessageText = newtext;
-    this.callSuscriber();
-  },
-
-  addpost() { 
-    let newpost = {
-      id: 4,
-      message: this._state.newpostText,
-      like: 3
-    };
-    this._state.posts.push(newpost);
-    this._state.newpostText = '';
-    this.callSuscriber();
-  },
-
-  updatenewpostText(newtext) {  
-    this._state.newpostText = newtext;
-    this.callSuscriber();
+  dispatch(action) {
+    if (action.type === ADD_MESSAGE) {
+      let newmessage = {
+        id: 6,
+        message: this._state.newmessageText
+      };
+      this._state.messages.push(newmessage);
+      this._state.newmessageText = '';
+      this._callSuscriber();
+    }
+    else if (action.type === ADD_POST) {
+      let newpost = {
+        id: 4,
+        message: this._state.newpostText,
+        like: 3
+      };
+      this._state.posts.push(newpost);
+      this._state.newpostText = '';
+      this._callSuscriber();
+    }
+    else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+      this._state.newmessageText = action.newtext;
+      this._callSuscriber();
+    }
+    else if (action.type === UPDATE_NEW_POST_TEXT) {
+      this._state.newpostText = action.newtext;
+      this._callSuscriber();
+    }
   }
+
+  // addmessage() {  
+  //   let newmessage = {
+  //     id: 4,
+  //     message: this._state.newmessageText
+  //   };
+  //   this._state.messages.push(newmessage);
+  //   this._state.newmessageText = '';
+  //   this._callSuscriber();
+  // },
+
+  // updatenewmessageText(newtext) {  
+  //   this._state.newmessageText = newtext;
+  //   this._callSuscriber();
+  // },
+
+  // addpost() { 
+  //   let newpost = {
+  //     id: 4,
+  //     message: this._state.newpostText,
+  //     like: 3
+  //   };
+  //   this._state.posts.push(newpost);
+  //   this._state.newpostText = '';
+  //   this._callSuscriber();
+  // },
+
+  // updatenewpostText(newtext) {  
+  //   this._state.newpostText = newtext;
+  //   this._callSuscriber();
+  // }
 
 };
 
+export const addpostactionCreator = () => {
+  return {
+    type: ADD_POST
+  }
+}
+
+export const addmessageactionCreator = () => {
+  return {
+    type: ADD_MESSAGE
+  }
+}
+
+export const updatenewpostTextactionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT, newtext: text
+  }
+}
+
+export const updatenewmessageTextactionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_TEXT, newtext: text
+  }
+}
 
 
 export default store;

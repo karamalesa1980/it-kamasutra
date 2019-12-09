@@ -13,6 +13,7 @@ import Muzic from './components/Muzic/Muzic';
 
 
 const App = (props) => {
+  
   return (
     
       <div className='app-wrapper'>
@@ -21,14 +22,13 @@ const App = (props) => {
         <div className='app-wrapper-contant'>
           <Route exact path='/dialogs' render={ () => <Dialogs
             appstate={props.appstate}
-            addmessage={props.addmessage}
-            updatenewmessageText={props.updatenewmessageText}/>}
-            />
+            dispatch={props.dispatch}
+            />}/>
+            
           <Route exact path='/profile' render={ () => <Profile
-          appstate={props.appstate}
-          addpost={props.addpost}
-          updatenewpostText={props.updatenewpostText}/>}
-          />
+            appstate={props.appstate}
+            dispatch={props.dispatch}
+            />}/>
           <Route exact path='/news' component={News} />
           <Route exact path='/muzic' component={Muzic} />
         </div>
