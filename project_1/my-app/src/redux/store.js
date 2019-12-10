@@ -1,7 +1,10 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+
+// const ADD_POST = 'ADD-POST'
+// const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+// const ADD_MESSAGE = 'ADD-MESSAGE'
+// const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
 let store = {
   _state: {
@@ -42,33 +45,38 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_MESSAGE) {
-      let newmessage = {
-        id: 6,
-        message: this._state.newmessageText
-      };
-      this._state.messages.push(newmessage);
-      this._state.newmessageText = '';
-      this._callSuscriber();
-    }
-    else if (action.type === ADD_POST) {
-      let newpost = {
-        id: 4,
-        message: this._state.newpostText,
-        like: 3
-      };
-      this._state.posts.push(newpost);
-      this._state.newpostText = '';
-      this._callSuscriber();
-    }
-    else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.newmessageText = action.newtext;
-      this._callSuscriber();
-    }
-    else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.newpostText = action.newtext;
-      this._callSuscriber();
-    }
+
+    this._state = profileReducer(this._state, action);
+    this._state = dialogsReducer(this._state, action);
+    this._callSuscriber();
+
+    // if (action.type === ADD_MESSAGE) {
+    //   let newmessage = {
+    //     id: 6,
+    //     message: this._state.newmessageText
+    //   };
+    //   this._state.messages.push(newmessage);
+    //   this._state.newmessageText = '';
+    //   this._callSuscriber();
+    // }
+    // else if (action.type === ADD_POST) {
+    //   let newpost = {
+    //     id: 4,
+    //     message: this._state.newpostText,
+    //     like: 3
+    //   };
+    //   this._state.posts.push(newpost);
+    //   this._state.newpostText = '';
+    //   this._callSuscriber();
+    // }
+    // else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+    //   this._state.newmessageText = action.newtext;
+    //   this._callSuscriber();
+    // }
+    // else if (action.type === UPDATE_NEW_POST_TEXT) {
+    //   this._state.newpostText = action.newtext;
+    //   this._callSuscriber();
+    // }
   }
 
   // addmessage() {  
@@ -104,29 +112,7 @@ let store = {
 
 };
 
-export const addpostactionCreator = () => {
-  return {
-    type: ADD_POST
-  }
-}
 
-export const addmessageactionCreator = () => {
-  return {
-    type: ADD_MESSAGE
-  }
-}
-
-export const updatenewpostTextactionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT, newtext: text
-  }
-}
-
-export const updatenewmessageTextactionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_TEXT, newtext: text
-  }
-}
 
 
 export default store;
