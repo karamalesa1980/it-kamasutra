@@ -26,11 +26,11 @@ const Dialogs = (props) => {
 
 
   let dialogsElements =
-  props.appstate.dialogs.map( d => <ItemDialog name={d.name} id={d.id} avatar={d.avatar} /> );
+  props.appstate.dialogsReducer.dialogs.map( d => <ItemDialog name={d.name} id={d.id} avatar={d.avatar} /> );
 
 
   let messagesElements =
-  props.appstate.messages.map( m => <Message message={m.message} id={m.id} /> );
+  props.appstate.dialogsReducer.messages.map( m => <Message message={m.message} id={m.id} /> );
 
   return (
   	<div className={classes.dialogs}>
@@ -54,7 +54,7 @@ const Dialogs = (props) => {
         <Message message={messagesData[3].message} id={messagesData[3].id}/>
         <Message message={messagesData[4].message} id={messagesData[4].id}/> */}
         <div className={classes.messages}>
-        <textarea onChange={onmessageChange} value={props.appstate.newmessageText}/><br/>
+        <textarea onChange={onmessageChange} value={props.appstate.dialogsReducer.newmessageText}/><br/>
         <button onClick={ addmessage }>Add message</button>
         </div>
         

@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 
 
   let postsElements =
-  props.appstate.posts.map( p => <Post message={p.message} like={p.like} /> )
+  props.appstate.profileReducer.posts.map( p => <Post message={p.message} like={p.like} /> )
 
 
   let addpost = () => {
@@ -33,7 +33,7 @@ const MyPosts = (props) => {
       </div>
       New post
       <div>        
-        <textarea onChange={onpostChange} value={props.appstate.newpostText} ref={newpostElement} /><br/>
+        <textarea onChange={onpostChange} value={props.appstate.profileReducer.newpostText} ref={newpostElement} /><br/>
         <button onClick={ addpost }>Add post</button>
       </div>
 
