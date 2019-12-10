@@ -16,12 +16,13 @@ const Dialogs = (props) => {
 
   
 
-  let onmessageChange = () => {
-    let text = newmessageElement.current.value
+  let onmessageChange = (e) => {
+    let text = e.target.value;
+    //let text = newmessageElement.current.value
     props.dispatch(updatenewmessageTextactionCreator(text));
   }
 
-  let newmessageElement = React.createRef();
+  //let newmessageElement = React.createRef();
 
 
   let dialogsElements =
@@ -53,7 +54,7 @@ const Dialogs = (props) => {
         <Message message={messagesData[3].message} id={messagesData[3].id}/>
         <Message message={messagesData[4].message} id={messagesData[4].id}/> */}
         <div className={classes.messages}>
-        <textarea onChange={onmessageChange} value={props.appstate.newmessageText} ref={newmessageElement} /><br/>
+        <textarea onChange={onmessageChange} value={props.appstate.newmessageText}/><br/>
         <button onClick={ addmessage }>Add message</button>
         </div>
         
