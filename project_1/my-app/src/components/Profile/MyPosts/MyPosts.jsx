@@ -1,29 +1,20 @@
 import React from 'react';
 import Post from './Post/Post';
-import { updatenewpostTextactionCreator, addpostactionCreator } from '../../../redux/profile-reducer';
 
 const MyPosts = (props) => {
   
-  let newpostElement = React.createRef();
-
-
   let postsElements =
-  props.appstate.profileReducer.posts.map( p => <Post message={p.message} like={p.like} /> )
+  props.profileReducer.posts.map( p => <Post message={p.message} like={p.like} /> )
 
 
-  let addpost = () => {
-    //const newLocal_1 = { type: 'ADD-POST' };
-    //props.addpost();
-    props.dispatch(addpostactionCreator())
+  let onaddpost = () => {
+    props.addpost();
   }
 
-  let onpostChange = () => {
-    let text = newpostElement.current.value
-    const newLocal = updatenewpostTextactionCreator(text);
-    //props.updatenewpostText(text);
-    props.dispatch(newLocal)
+  let onpostChange = (e) => {
+    let text = e.target.value;
+    props.updatenewpostText(text);   
   }
-
 
   return (
     <div>
@@ -33,14 +24,13 @@ const MyPosts = (props) => {
       </div>
       New post
       <div>        
-        <textarea onChange={onpostChange} value={props.appstate.profileReducer.newpostText} ref={newpostElement} /><br/>
-        <button onClick={ addpost }>Add post</button>
+        <textarea onChange={onpostChange} value={props.profileReducer.newpostText}  /><br/>
+        <button onClick={ onaddpost }>Add post</button>
       </div>
 
         { postsElements }
 
-      {/* <Post message={postData[0].message} like={postData[0].like}/>
-      <Post message={postData[1].message} like={postData[1].like}/> */}
+      
 
     </div>
   )
