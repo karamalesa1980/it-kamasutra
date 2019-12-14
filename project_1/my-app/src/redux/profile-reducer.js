@@ -13,18 +13,24 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
   switch(action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newpost = {
         id: 4,
         message: state.newpostText,
         like: 3
       };
-      state.posts.push(newpost);
-      state.newpostText = '';
-      return state;
-    case UPDATE_NEW_POST_TEXT:
-      state.newpostText = action.newtext;
-      return state;
+      let stateCopy = {...state}; // копируем state
+      stateCopy.posts = [...state.posts]; // копируем state.posts
+      stateCopy.posts.push(newpost);
+      stateCopy.newpostText = '';
+      return stateCopy;
+    }
+    case UPDATE_NEW_POST_TEXT: {
+      let stateCopy = {...state}; // копируем state
+
+      stateCopy.newpostText = action.newtext;
+      return stateCopy;
+    }  
     default:              // default: не забывай а то ошибка.
       return state;  
   }

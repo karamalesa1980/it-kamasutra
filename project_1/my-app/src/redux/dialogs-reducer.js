@@ -1,3 +1,6 @@
+
+
+
 const ADD_MESSAGE = 'ADD-MESSAGE'
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
@@ -21,21 +24,29 @@ messages: [
 ]
 };
 
-const dialogsReducer = (state= initialState, action) => {
+const dialogsReducer = (state = initialState, action) => {
   switch(action.type) {
-    case ADD_MESSAGE:
+    case ADD_MESSAGE: {
         let newmessage = {
           id: 6,
           message: state.newmessageText
         };
-        state.messages.push(newmessage);
-        state.newmessageText = '';
-        return state;
-    case UPDATE_NEW_MESSAGE_TEXT:
-        state.newmessageText = action.newtext;
-        return state;
+        let stateCopy = {...state};
+        stateCopy.messages = [...state.messages];
+        stateCopy.messages.push(newmessage);
+        stateCopy.newmessageText = '';
+        return stateCopy;
+    }    
+    case UPDATE_NEW_MESSAGE_TEXT: {
+        let stateCopy = {...state};
+
+        stateCopy.newmessageText = action.newtext;
+        return stateCopy;
+        
+    }    
     default:           // default: не забывай а то ошибка.
-      return state;        
+      return state;
+             
   }  
 }
 

@@ -20,9 +20,9 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className='app-wrapper-contant'>
-          <Route exact path='/dialogs' render={ () => <DialogsContainer store={props.store} />}/>
+          <Route exact path='/dialogs' render={ () => <DialogsContainer />}/>
             
-          <Route exact path='/profile' render={ () => <Profile store={props.store} />}/>
+          <Route exact path='/profile' render={ () => <Profile />}/>
           <Route exact path='/news' component={News} />
           <Route exact path='/muzic' component={Muzic} />
         </div>
