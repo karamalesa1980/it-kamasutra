@@ -18,11 +18,11 @@ const Dialogs = (props) => {
 
 
   let dialogsElements =
-  props.dialogsReducer.dialogs.map( d => <ItemDialog name={d.name} id={d.id} avatar={d.avatar} /> );
+  props.dialogsReducer.dialogs.map( d => <ItemDialog name={d.name} key={d.id} avatar={d.avatar} /> );
 
 
   let messagesElements =
-  props.dialogsReducer.messages.map( m => <Message message={m.message} id={m.id} /> );
+  props.dialogsReducer.messages.map( m => <Message message={m.message} key={m.id} /> );
 
   return (
   	<div className={classes.dialogs}>

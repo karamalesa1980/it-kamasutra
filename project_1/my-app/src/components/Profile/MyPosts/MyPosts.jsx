@@ -4,7 +4,7 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
   
   let postsElements =
-  props.profileReducer.posts.map( p => <Post message={p.message} like={p.like} /> )
+  props.profileReducer.posts.map( p => <Post post={p.post} key={p.id} like={p.like} /> )
 
 
   let onaddpost = () => {

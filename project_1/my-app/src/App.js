@@ -8,11 +8,12 @@ import { Route } from 'react-router-dom';
 import News from './components/News/News';
 import Muzic from './components/Muzic/Muzic';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 
 
-const App = (props) => {
+const App = () => {
   debugger
   return (
     
@@ -23,6 +24,7 @@ const App = (props) => {
           <Route exact path='/dialogs' render={ () => <DialogsContainer />}/>
             
           <Route exact path='/profile' render={ () => <Profile />}/>
+          <Route exact path='/users' render={ () => <UsersContainer />}/>
           <Route exact path='/news' component={News} />
           <Route exact path='/muzic' component={Muzic} />
         </div>

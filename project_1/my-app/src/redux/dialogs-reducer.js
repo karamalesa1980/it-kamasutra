@@ -25,23 +25,23 @@ messages: [
 };
 
 const dialogsReducer = (state = initialState, action) => {
+  
   switch(action.type) {
     case ADD_MESSAGE: {
-        let newmessage = {
-          id: 6,
-          message: state.newmessageText
+        let newmessage = state.newmessageText;   
+        return {
+          ...state,
+          newmessageText: '',
+          messages: [...state.messages, {id: 6, message: newmessage}]
         };
-        let stateCopy = {...state};
-        stateCopy.messages = [...state.messages];
-        stateCopy.messages.push(newmessage);
-        stateCopy.newmessageText = '';
-        return stateCopy;
+                
     }    
     case UPDATE_NEW_MESSAGE_TEXT: {
-        let stateCopy = {...state};
+        return {
+          ...state,
+          newmessageText: action.newtext
+        };
 
-        stateCopy.newmessageText = action.newtext;
-        return stateCopy;
         
     }    
     default:           // default: не забывай а то ошибка.
