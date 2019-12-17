@@ -1,7 +1,7 @@
 import Users from './Users';
-import { addmessageactionCreator, updatenewmessageTextactionCreator } from '../../redux/dialogs-reducer';
 import { connect } from 'react-redux'
 import React from 'react';
+import { followAC, unfollowAC, setUsersAC } from '../../redux/users-reducer';
  
 
 let mapStateToProps = (state) => {
@@ -11,10 +11,15 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    addmessage: () => {
-      dispatch(addmessageactionCreator())},
-    updatenewmessageText: (text) => {
-      dispatch(updatenewmessageTextactionCreator(text))}
+    follow: (userId) => {
+      dispatch(followAC(userId));
+    },
+    unfollow: (userId) => {
+      dispatch(unfollowAC(userId));
+    },
+    setUsers: (users) => {
+      dispatch(setUsersAC(users));
+    },
   }
 }
 
