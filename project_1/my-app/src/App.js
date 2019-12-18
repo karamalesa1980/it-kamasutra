@@ -14,7 +14,7 @@ import UsersContainer from './components/Users/UsersContainer';
 
 
 const App = () => {
-  debugger
+  
   return (
     
       <div className='app-wrapper'>
